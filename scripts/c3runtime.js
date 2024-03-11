@@ -4097,14 +4097,16 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.video,
 		C3.Plugins.SVGPicture,
 		C3.Plugins.Touch,
+		C3.Plugins.System.Cnds.OnLayoutStart,
+		C3.Plugins.System.Acts.SetLayerVisible,
 		C3.Plugins.System.Cnds.LayerVisible,
 		C3.Plugins.Touch.Cnds.OnTapGestureObject,
 		C3.Plugins.System.Acts.SetVar,
-		C3.Plugins.System.Acts.SetLayerVisible,
 		C3.Plugins.video.Acts.SetSource,
 		C3.Plugins.video.Acts.Play,
 		C3.Plugins.video.Cnds.HasEnded,
-		C3.Plugins.System.Acts.Wait
+		C3.Plugins.System.Acts.Wait,
+		C3.Plugins.System.Acts.RestartLayout
 	];
 };
 self.C3_JsPropNameTable = [
@@ -4220,6 +4222,7 @@ function or(l, r)
 
 self.C3_ExpressionFuncs = [
 		() => 0,
+		() => 1,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpInstVar();
@@ -4229,8 +4232,7 @@ self.C3_ExpressionFuncs = [
 			const v0 = p._GetNode(0).GetVar();
 			return () => and(v0.GetValue(), ".mp4");
 		},
-		() => 2,
-		() => 1
+		() => 2
 ];
 
 
